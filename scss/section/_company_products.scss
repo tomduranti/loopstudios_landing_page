@@ -72,6 +72,7 @@
         @include mix.respond_to(min, l_screen) {
             max-block-size: 100%;
             padding: calc(map.get(var.$spacing, 48) + (map.get(var.$special_spacing, 2) * 2)) 0 map.get(var.$spacing, 32) map.get(var.$spacing, 40);
+            font-size: 2rem; //overrides clamp() func
         }
 
         &::before {

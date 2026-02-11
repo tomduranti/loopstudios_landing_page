@@ -19,8 +19,21 @@
     inline-size: calc(map.get(var.$spacing, 72) * 2);
     block-size: map.get(var.$spacing, 24);
 
-    @include mix.respond_to(min, m_screen) {
-        inline-size: calc(map.get(var.$spacing, 24) * 8);
-        block-size: map.get(var.$spacing, 32);
+    &--footer {
+        margin-block-end: map.get(var.$spacing, 24);
+        justify-self: center;
+        order: 1;
+
+        @include mix.respond_to(min, m_screen) {
+            margin-block-end: 0;
+            justify-self: left;
+        }
+    }
+
+    &--header {
+        @include mix.respond_to(min, m_screen) {
+            inline-size: calc(map.get(var.$spacing, 24) * 8);
+            block-size: map.get(var.$spacing, 24);
+        }
     }
 }

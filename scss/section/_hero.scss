@@ -25,7 +25,7 @@
 
         border: map.get(var.$special_spacing, 2) solid var.$white;
         padding: .46em .62em;
-        margin-block-start: calc(map.get(var.$spacing, 120) + map.get(var.$spacing, 40) + map.get(var.$special_spacing, 2) + (map.get(var.$special_spacing, 2) / 2));
+        margin-block-start: calc(map.get(var.$spacing, 120) + map.get(var.$special_spacing, 5) + map.get(var.$special_spacing, 2));
         max-inline-size: calc(map.get(var.$spacing, 64) * 7); //stop the main text box to stretch
         margin-inline: auto;
 

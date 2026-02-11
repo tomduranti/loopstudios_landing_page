@@ -8,11 +8,6 @@
   padding: $hamburger-padding-y $hamburger-padding-x;
   display: inline-block;
   cursor: pointer;
-
-  transition-property: opacity, filter;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
-
   font: inherit;
   color: inherit;
   text-transform: none;
@@ -20,6 +15,8 @@
   border: 0;
   margin: 0;
   overflow: visible;
+
+  @include mix.transition(0.15s, linear, opacity filter);
 
   &:hover {
     @if $hamburger-hover-use-filter == true {
