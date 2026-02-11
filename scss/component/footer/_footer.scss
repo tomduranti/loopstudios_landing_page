@@ -67,7 +67,8 @@
         align-items: center;
 
         @include mix.respond_to(min, m_screen) {
-            justify-self: end;
+            justify-content: flex-end; //workaround for consistency across major browsers
+            justify-self: flex-end;
         }
 
         &> * {

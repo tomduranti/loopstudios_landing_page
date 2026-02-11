@@ -1,9 +1,9 @@
 @use "../../abstract/variables" as var;
 @use "sass:map";
 
-$hamburger-padding-x           : map.get(var.$special_spacing, 15) !default;
-$hamburger-padding-y           : map.get(var.$special_spacing, 15) !default;
-$hamburger-layer-width         : map.get(var.$spacing, 24) !default;
+$hamburger-padding-x           : map.get(var.$special_spacing, 40) !default;
+$hamburger-padding-y           : map.get(var.$special_spacing, 40) !default;
+$hamburger-layer-width         : map.get(var.$spacing, 40) !default;
 $hamburger-layer-height        : map.get(var.$special_spacing, 2) !default;
 $hamburger-layer-spacing       : map.get(var.$special_spacing, 5) !default;
 $hamburger-layer-color         : var.$white !default;
