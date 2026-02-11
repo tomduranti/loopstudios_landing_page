@@ -19,7 +19,7 @@
         }
 
         @include mix.respond_to(min, l_screen) {
-            padding: calc(map.get(var.$spacing, 32) + map.get(var.$special_spacing, 4) + map.get(var.$special_spacing, 5) + (map.get(var.$special_spacing, 15) / 10)) 0 map.get(var.$spacing, 32);
+            padding: calc(map.get(var.$spacing, 40) + map.get(var.$special_spacing, 5)) 0 map.get(var.$spacing, 32);
         }
     }
 
