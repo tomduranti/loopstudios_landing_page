@@ -66,12 +66,11 @@
 
         @include mix.respond_to(min, m_screen) {
             padding-inline-start: calc(map.get(var.$spacing, 16) + map.get(var.$special_spacing, 15) + map.get(var.$special_spacing, 5) + (map.get(var.$special_spacing, 2) / 2));
-            ;
         }
 
         @include mix.respond_to(min, l_screen) {
             max-block-size: 100%;
-            padding: calc(map.get(var.$spacing, 48) + (map.get(var.$special_spacing, 2) * 2)) 0 map.get(var.$spacing, 32) map.get(var.$spacing, 40);
+            padding: calc(map.get(var.$spacing, 48) + map.get(var.$special_spacing, 4)) 0 map.get(var.$spacing, 32) map.get(var.$spacing, 40);
         }
 
         &::before {

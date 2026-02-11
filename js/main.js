@@ -33,8 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    if (hamburger) {
-        hamburger.addEventListener("click", toggleProperty);
+    //prevents small/medium screen black design on larger screens 
+    if (!desktopSize.matches) {
+        if (hamburger) {
+            hamburger.addEventListener("click", toggleProperty);
+        }
     }
     
     //throttle function to avoid performance issues on window resize

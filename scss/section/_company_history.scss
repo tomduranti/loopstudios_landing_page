@@ -71,7 +71,10 @@
 
     &__paragraph {
         color: var.$black--opaque;
-        text-align: left;
+        
+        @include mix.respond_to(min, l_screen) {
+            text-align: left;
+        }
     }
 
 }
