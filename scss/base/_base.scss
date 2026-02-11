@@ -1,0 +1,26 @@
+@use "../abstract/mixins" as mix;
+@use "../abstract/variables" as var;
+@use "sass:map";
+
+.container {
+    margin-inline: auto;
+    max-inline-size: 87.2%;
+
+    @include mix.respond_to(min, m_screen) {
+        max-inline-size: 79.167%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        max-inline-size: 77.79%;
+    }
+}
+
+.logo {
+    inline-size: calc(map.get(var.$spacing, 72) * 2);
+    block-size: map.get(var.$spacing, 24);
+
+    @include mix.respond_to(min, m_screen) {
+        inline-size: calc(map.get(var.$spacing, 24) * 8);
+        block-size: map.get(var.$spacing, 32);
+    }
+}

@@ -1,0 +1,77 @@
+@use "../abstract/variables" as var;
+@use "../abstract/mixins" as mix;
+@use "sass:map";
+
+.company_history {
+    margin-block-end: map.get(var.$spacing, 96);
+}
+
+.card {
+
+    @include mix.respond_to(min, m_screen) {
+        max-inline-size: calc((map.get(var.$spacing, 80) * 9.2) - map.get(var.$special_spacing, 5)); //this is to center the card at ~1000px vw
+        margin-inline: auto;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        max-inline-size: 100%;
+        display: flex;
+        justify-self: center;
+        margin-block-end: calc(map.get(var.$spacing, 120) + map.get(var.$spacing, 64));
+    }
+
+    &__text {
+        padding-block-start: map.get(var.$spacing, 48);
+        margin-inline: auto;
+
+        inline-size: 100%;
+        max-inline-size: 85.3%;
+
+        text-align: center;
+
+        @include mix.respond_to(min, m_screen) {
+            max-inline-size: 100%;
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            max-inline-size: calc((map.get(var.$spacing, 80) * 6.5) + map.get(var.$spacing, 16) + map.get(var.$special_spacing, 5));
+            padding-block-start: map.get(var.$spacing, 96) + map.get(var.$special_spacing, 2);
+            margin-inline-start: -161px;
+            margin-inline-end: 0;
+            padding-inline-start: calc(map.get(var.$spacing, 88) - map.get(var.$special_spacing, 2));
+            
+            align-self: end;
+
+            background-color: white;
+            box-shadow: 0 map.get(var.$special_spacing, 4) map.get(var.$special_spacing, 4) hsl(0deg, 100%, 100%); //to fix pixel bleeding
+        }
+    }
+
+    &__image {
+
+        @include mix.respond_to(min, l_screen) {
+            inline-size: calc((map.get(var.$spacing, 64) * 10) + map.get(var.$spacing, 88) + map.get(var.$special_spacing, 2) + (map.get(var.$special_spacing, 2) / 2));
+            block-size: 100%;
+            line-height: 0;
+        }
+    }
+
+    &__header {
+        margin-block-end: map.get(var.$spacing, 16);
+
+        @include mix.respond_to(min, m_screen) {
+            font-size: map.get(var.$spacing, 48); //overrides clamp() to follow design
+            margin-block-end: map.get(var.$spacing, 24);
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            text-align: left;
+        }
+    }
+
+    &__paragraph {
+        color: var.$black--opaque;
+        text-align: left;
+    }
+
+}

@@ -1,0 +1,44 @@
+@use "../abstract/variables" as var;
+@use "../abstract/mixins" as mix;
+@use "../abstract/functions" as func;
+@use "sass:map";
+
+.hero {
+    background-image: linear-gradient(to bottom, var.$black--gradient, var.$black--gradient), url("../assets/mobile/hero_mobile.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-block-size: calc((map.get(var.$spacing, 120) * 5) + map.get(var.$spacing, 48) + map.get(var.$special_spacing, 2)); //fixed height for all screen sizes
+    margin-block-end: map.get(var.$spacing, 96);
+
+    @include mix.respond_to(min, m_screen) {
+        background-image: linear-gradient(to bottom, var.$black--gradient, var.$black--gradient), url("../assets/desktop/hero_desktop.jpg");
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        margin-block-end: calc(map.get(var.$spacing, 80) * 2);
+    }
+
+    &__header {
+        text-transform: uppercase;
+        overflow-wrap: break-word;
+
+        border: map.get(var.$special_spacing, 2) solid var.$white;
+        padding: .46em .62em;
+        margin-block-start: calc(map.get(var.$spacing, 120) + map.get(var.$spacing, 40) + map.get(var.$special_spacing, 2) + (map.get(var.$special_spacing, 2) / 2));
+        max-inline-size: calc(map.get(var.$spacing, 64) * 7); //stop the main text box to stretch
+        margin-inline: auto;
+
+        @include mix.respond_to(min, m_screen) {
+            max-inline-size: 100%;
+            font-size: 4.5rem; //overrides clamp() to follow design
+            padding: map.get(var.$spacing, 40);
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            max-inline-size: 57.38%;
+            padding: calc(map.get(var.$spacing, 40) + map.get(var.$special_spacing, 2)) map.get(var.$spacing, 40);
+            margin-inline-start: 0;
+        }
+    }
+}

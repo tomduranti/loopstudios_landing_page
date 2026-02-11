@@ -1,0 +1,64 @@
+@use "./variables" as var;
+@use "./functions" as func;
+@use "sass:list";
+@use "sass:map";
+
+@mixin typography($font_family, $font_size: 16, $font_weight: 400, $line_height: null, $letter_spacing: 0, $color: var.$black) {
+    font-family: $font_family;
+    font-size: $font_size;
+    font-weight: $font_weight;
+    line-height: $line_height;
+    letter-spacing: $letter_spacing;
+    color: $color;
+}
+
+@mixin transition($time, $mode, $prop...) {
+    @media (prefers-reduced-motion: no-preference) {
+        transition: $prop $time $mode;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+@mixin respond_to($minmax, $media) {
+    @if $media ==l_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(1440)) {
+            @content;
+        }
+    }
+
+    @else if $media ==m_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(768)) {
+            @content;
+        }
+    }
+
+    @else if $media ==s_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(375)) {
+            @content;
+        }
+    }
+}
+
+@mixin link($bg_color) {
+
+    @media (pointer: coarse) {
+        &:active path {
+            fill: $bg_color;
+        }
+    }
+
+    @media (pointer: fine) {
+        &:hover path {
+            fill: $bg_color;
+        }
+    }
+}
+
+@mixin box-shadow($horiz : .5em, $vert : .5em, $blur : 0px, $spread : 0px, $color : #000000) {
+    -webkit-box-shadow: $horiz $vert $blur $spread $color;
+    -moz-box-shadow: $horiz $vert $blur $spread $color;
+    box-shadow: $horiz $vert $blur $spread $color;
+}

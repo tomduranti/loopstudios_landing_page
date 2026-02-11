@@ -1,0 +1,14 @@
+@use "../abstract/variables" as var;
+@use "../abstract/mixins" as mix;
+@use "../abstract/functions" as func;
+@use "sass:map";
+
+$presets: (
+    3: (var.$ff_Josefin, clamp(2.38rem, 1.95rem + 2.27vw, 4.5rem), 300, 1, 0, var.$white),
+    4: (var.$ff_Josefin, clamp(1.75rem, 1.51rem + 1.19vw, 3rem), 300, 1, 0),
+    5: (var.$ff_Josefin, clamp(1.25rem, 1.11rem + 0.71vw, 2rem), 300, 1, 0, var.$white),
+    6: (var.$ff_Alata, func.to_rem(15), 400, 1.65, 0),
+    7: (var.$ff_Alata, func.to_rem(14), 400, 1, .313rem),
+);
+
+@each $key, $value in $presets { .text_preset_#{$key} { @include mix.typography($value... ) }; }

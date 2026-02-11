@@ -1,0 +1,81 @@
+@use "../../abstract/variables" as var;
+@use "../../abstract/mixins" as mix;
+@use "sass:map";
+
+.page_header {
+
+    @include mix.respond_to(min, l_screen) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding-block-start: map.get(var.$spacing, 40); //add some spacing to the top of the header
+
+        @include mix.respond_to(min, l_screen) {
+            padding-block-start: map.get(var.$spacing, 64);
+        }
+    }
+}
+
+.hamburger--squeeze {
+    padding-inline-start: map.get(var.$spacing, 8); //to increase clickable area of button
+
+    @include mix.respond_to(min, l_screen) {
+        display: none;
+    }
+}
+
+.topnav {
+    margin-block-start: calc((map.get(var.$spacing, 32) * 4) + map.get(var.$spacing, 16) + map.get(var.$special_spacing, 15));
+
+    @include mix.respond_to(min, l_screen) {
+        margin-block-start: 0;
+        align-content: end;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: map.get(var.$spacing, 24);
+        text-transform: uppercase;
+
+        @include mix.respond_to(min, l_screen) {
+            flex-direction: row;
+            text-transform: capitalize;
+            font-size: map.get(var.$special_spacing, 15); //overrides clamp function
+            gap: map.get(var.$spacing, 32);
+        }
+    }
+
+    &__link {
+
+        @include mix.respond_to(min, l_screen) {
+
+            &>* {
+                position: relative;
+            }
+
+            &>*::after {
+                content: "";
+                position: absolute;
+                inset-inline-start: 50%;
+                inset-block-end: -40%;
+                block-size: map.get(var.$special_spacing, 2);
+                inline-size: map.get(var.$spacing, 24);
+                transform: translate(-50%, -50%);
+                transition: background .3s ease;
+            }
+
+            &>*:hover::after {
+                background: var.$white;
+            }
+        }
+    }
+
+    & a {
+        color: var.$white;
+    }
+}

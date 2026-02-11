@@ -1,0 +1,16 @@
+@use "../../abstract/variables" as var;
+@use "sass:map";
+
+$hamburger-padding-x           : map.get(var.$special_spacing, 15) !default;
+$hamburger-padding-y           : map.get(var.$special_spacing, 15) !default;
+$hamburger-layer-width         : map.get(var.$spacing, 24) !default;
+$hamburger-layer-height        : map.get(var.$special_spacing, 2) !default;
+$hamburger-layer-spacing       : map.get(var.$special_spacing, 5) !default;
+$hamburger-layer-color         : var.$white !default;
+$hamburger-layer-border-radius : 0 !default;
+$hamburger-hover-opacity       : 0.7 !default;
+$hamburger-active-layer-color  : $hamburger-layer-color !default;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
+$hamburger-hover-use-filter   : false !default;
+$hamburger-hover-filter       : opacity(50%) !default;
+$hamburger-active-hover-filter: $hamburger-hover-filter !default;

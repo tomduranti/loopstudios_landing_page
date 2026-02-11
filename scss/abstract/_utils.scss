@@ -1,0 +1,21 @@
+@use "./variables" as var;
+@use "./mixins" as mix;
+@use "sass:map";
+
+.header {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.is_black.is_black {
+    background: var.$black;
+}
+
+.is_hidden.is_hidden {
+    display: none; // hidden by default (below 90rem)
+
+    @include mix.respond_to(min, l_screen) {
+        display: initial; // visible at 90rem and above
+    }
+    
+}

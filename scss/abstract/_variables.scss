@@ -1,0 +1,40 @@
+@use "./functions" as func;
+
+//COLORS
+$white: hsl(0deg, 100%, 100%);
+$black: hsl(0deg, 0%, 0%);
+$black--gradient: hsl(0deg, 0%, 0%, 30%);
+$black--opaque: hsl(0deg, 0%, 50%);
+$grey: hsl(0deg, 0%, 85%);
+$blue--100: hsl(215deg, 30%, 92%);
+$blue--50: hsl(213deg, 100%, 98%);
+$gradient_40: linear-gradient(to left, hsl(0deg 0% 0% / 0), hsl(0deg 0% 0% / .6));
+
+//TYPOGRAPHY
+$ff_Josefin: "Josefin Sans", sans-serif;
+$ff_Alata: "Alata", sans-serif;
+
+//SPACING
+$spacing: (
+  0:    0,       
+  8:   func.to_rem(8),
+  16:  func.to_rem(16),
+  24:  func.to_rem(24), 
+  32:  func.to_rem(32),
+  40:  func.to_rem(40),
+  48:  func.to_rem(48),
+  56:  func.to_rem(56),
+  64:  func.to_rem(64),
+  72:  func.to_rem(72),
+  80:  func.to_rem(80),
+  88:  func.to_rem(88),
+  96:  func.to_rem(96),
+  120: func.to_rem(120),
+);
+
+$special_spacing: (
+  2:  .125rem,
+  4:  .25rem,
+  5:  .313rem,
+  15: .938rem,
+);
