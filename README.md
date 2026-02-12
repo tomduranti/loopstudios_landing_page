@@ -9,7 +9,7 @@ This is a static page application where users can:
 
 ### Screenshot
 
-![](./loopstudios_landing_page.gif)
+![](./_resources/loopstudios_demo.gif)
 
 ### Links
 
