@@ -63,8 +63,9 @@
     &__list {
         display: flex;
         gap: map.get(var.$spacing, 16);
-        justify-self: center;
         align-items: center;
+        justify-content: center; //workaround for consistency across major browsers
+        justify-self: center;
 
         @include mix.respond_to(min, m_screen) {
             justify-content: flex-end; //workaround for consistency across major browsers
