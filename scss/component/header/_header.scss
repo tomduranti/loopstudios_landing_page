@@ -21,8 +21,6 @@
 }
 
 .hamburger--squeeze {
-    padding-inline-start: map.get(var.$spacing, 8); //to increase clickable area of button
-
     @include mix.respond_to(min, l_screen) {
         display: none;
     }
